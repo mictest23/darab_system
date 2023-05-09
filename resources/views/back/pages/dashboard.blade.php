@@ -1,20 +1,8 @@
 @extends('back.layouts.page-layout')
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Dashboard')
+@section('pagePart', isset($pagePart) ? $pagePart : 'Dashboard')
 @section('content')
 
-<main class="flex-1 p-10">
-
-  <div class="grid grid-cols-6">
-    <div class="col-start-1 col-end-3">
-      <h1 class="text-2xl font-bold mb-5">Dashboard</h1>
-    </div>
-    <div class="col-end-7 col-span-2 px-7 grid justify-items-end">
-      <button class="text-lg mb-5 px-3 bg-gray-900 shadow-sm rounded-sm text-white">
-        <span class="font-bold">Mike Pitao | </span>
-        <span class="text-sm">Super Admin</span>
-      </button>
-    </div>
-  </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="bg-gray-200 rounded-lg shadow-lg p-5">
         <h2 class="text-lg font-bold mb-3">Total Sales</h2>
@@ -69,6 +57,5 @@
         </table>
       </div>
     </div>
-  </main>
 
 @endsection

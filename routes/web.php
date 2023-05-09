@@ -23,6 +23,7 @@ Route::middleware(['guest:web'])->group(function(){
 
 Route::middleware(['auth:web'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::view('/add', 'back.pages.add')->name('add');
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
     
 });
