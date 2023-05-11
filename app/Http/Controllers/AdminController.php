@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
     public function index(){
         return view('back.pages.dashboard');
     }
@@ -22,4 +23,5 @@ class AdminController extends Controller
         $password = Hash::make('password');
         dd($password);
     }
+    
 }

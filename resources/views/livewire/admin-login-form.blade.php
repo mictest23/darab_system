@@ -7,11 +7,11 @@
     </div>
     @endif
 
-    @if (Session::get('success'))
+    {{-- @if (Session::get('success'))
         <div class="alert alert-success">
             {!! Session::get('success') !!}
         </div>
-    @endif
+    @endif --}}
 
     <form class="mt-4" method="post" wire:submit.prevent="LoginHandler()" autocomplete="off" novalidate="">
         <div class="mb-4">

@@ -27,6 +27,8 @@ class CreateRecordsTable extends Migration
             $table->string('area');
             $table->string('crops');
             $table->string('counsel');
+            $table->string('name')->nullable();
+            $table->string('file_path')->nullable();
             $table->timestamps();
         });
     }

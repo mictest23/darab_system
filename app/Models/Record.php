@@ -23,5 +23,7 @@ class Record extends Model
         'area',
         'crops',
         'counsel',
+        'name',
+        'file_path'
     ];
 }

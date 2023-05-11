@@ -1,18 +1,18 @@
 @extends('back.layouts.page-layout')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Dashboard')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Dashboard | Darab')
 @section('pagePart', isset($pagePart) ? $pagePart : 'Dashboard')
 @section('content')
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <div class="bg-gray-200 rounded-lg shadow-lg p-5">
+      <div class="bg-white rounded-lg shadow-lg p-5">
         <h2 class="text-lg font-bold mb-3">Total Sales</h2>
         <p class="text-3xl font-bold">$50,000</p>
       </div>
-      <div class="bg-gray-200 rounded-lg shadow-lg p-5">
+      <div class="bg-white rounded-lg shadow-lg p-5">
         <h2 class="text-lg font-bold mb-3">New Users</h2>
         <p class="text-3xl font-bold">250</p>
       </div>
-      <div class="bg-gray-200 rounded-lg shadow-lg p-5">
+      <div class="bg-white rounded-lg shadow-lg p-5">
         <h2 class="text-lg font-bold mb-3">Orders Pending</h2>
         <p class="text-3xl font-bold">15</p>
       </div>
@@ -21,7 +21,7 @@
       <h2 class="text-lg font-bold mb-5">Recent Orders
         </h2>
       <div class="overflow-x-auto">
-        <table class="table-auto w-full">
+        <table class="table-auto w-full bg-white">
           <thead>
             <tr class="bg-gray-200 text-gray-700">
               <th class="px-4 py-2">#</th>
