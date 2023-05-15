@@ -1,68 +1,69 @@
 <div>
     
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="post" wire:submit.prevent="AddRecord()">
+
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-40 mr-40" method="post" wire:submit.prevent="EditRecord()">
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="full_name">Docket number</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="BOH-VII-" wire:model="docket_number">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('docket_number'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="email">Date filed</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" placeholder="Enter your email" wire:model="date_filed">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" value="">
           <p class="text-red-500">@error('date_filed'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Cabinet</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Enter your phone number" wire:model="cabinet">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('cabinet'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="message">Nature of case</label>
-          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Nature of case" wire:model="nature"></textarea>
+          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" disabled></textarea>
           <p class="text-red-500">@error('nature'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Petitioner</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter petitioner" wire:model="petitioners">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('petitioners'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Respondent lessor</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessor" wire:model="lessor">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('lessor'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Respondent lessee</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessee" wire:model="lessee">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('lessee'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Location</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter location situated" wire:model="location">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
           <p class="text-red-500">@error('location'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Date of alhc</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" placeholder="Enter your phone number" wire:model="date_alhc">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="date" value="">
           <p class="text-red-500">@error('date_alhc'){{ $message }}@enderror</p>
         </div>
     
         <div class="grid grid-cols-2 gap-8">
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="phone">Area</label>
-              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" placeholder="Enter area of land" wire:model="area">
+              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" value="">
               <p class="text-red-500">@error('area'){{ $message }}@enderror</p>
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="phone">Crop</label>
-              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="What crop being cultivated" wire:model="crops">
+              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value="">
               <p class="text-red-500">@error('crops'){{ $message }}@enderror</p>
             </div>
         </div>
     
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Counsel</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Enter Counsels" wire:model="counsel">
+          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" value="">
           <p class="text-red-500">@error('counsel'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
@@ -71,10 +72,11 @@
           <p class="text-red-500">@error('file'){{ $message }}@enderror</p>
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Add record
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Save changes
           </button>
         </div>
       </form>
+
 
 </div>

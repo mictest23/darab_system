@@ -12,6 +12,30 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <style>
+      /* Additional custom styles for the modal */
+      .modal {
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .modal-content {
+        background-color: #fff;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 4px;
+      }
+    </style>
+
   </head>
   <body class="bg-gray-100">
     <div class="flex h-screen">
@@ -22,10 +46,8 @@
             <span class="text-lg font-bold">DARAB System v.2</span>
           </div>
            @include('back.layouts.inc.nav')
-          <a class="bg-red-500 text-white py-2 px-4 text-sm mt-40" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            Logout
-          </a>
-          <form action="{{ route('logout') }}" id="logout-form" method="POST">@csrf</form>
+
+           <a class="bg-red-500 text-white py-2 px-4 text-sm mt-40" id="openModal">Logout</a>
           <div class="bg-gray-900 text-white py-2 px-4 text-sm">
             © DARAB 2023
           </div>
@@ -52,9 +74,26 @@
         </div>
       </main>
     </div>
-    <livewire:scripts />
+    
+
+    
+
+    {{-- LOGOUT MODAL --}}
+    <div id="modal" class="modal">
+      <div class="modal-content bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Logout Confirmation</h2>
+      <p>Are you sure you want to log out?</p>
+      <div class="mt-4 flex justify-end">
+        <button id="closeModal" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Cancel</button>
+        <button  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</button>
+        <form action="{{ route('logout') }}" id="logout-form" method="POST">@csrf</form>
+      </div>
+      </div>
+    </div>
+
 
     <script>
+      // TOASTR SCRIPT
       window.addEventListener('showToastr', function(event){
         toastr.remove();
         if(event.detail.type === 'info'){
@@ -69,7 +108,30 @@
           return false;
         }
       });
+
+
+      // MODAL SCRIPT
+      const openModalButton = document.getElementById('openModal');
+      const closeModalButton = document.getElementById('closeModal');
+      const modal = document.getElementById('modal');
+
+      openModalButton.addEventListener('click', () => {
+        modal.style.display = 'flex';
+      });
+
+      closeModalButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
     </script>
+
+
+
+    {{-- Bootstrap Scripts --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+    @stack('scripts')
+    <livewire:scripts />
 
   </body>
 </html>
