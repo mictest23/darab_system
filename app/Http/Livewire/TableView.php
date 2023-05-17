@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Record;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class TableView extends Component
 {
+    use WithFileUploads;
     use WithPagination;
     public $searchTerm;
 
@@ -52,7 +55,7 @@ class TableView extends Component
             ->orWhere('cabinet','like', $searchTerm)
             ->orWhere('petitioners','like', $searchTerm)
             ->orWhere('lessor','like', $searchTerm)
-            ->orWhere('lessee','like', $searchTerm)->paginate(7)
+            ->orWhere('lessee','like', $searchTerm)->paginate(10)
         ])->layout('livewire.table-view');
     }
 
@@ -116,9 +119,13 @@ class TableView extends Component
     public function deleteRecordData(){
         $record = Record::where('id', $this->record_delete_id)->first();
         $record->delete();
+
+        $path = Storage::disk('local')->path('public/files/'. $record->name .'');     //delete files when new file is added
+        unlink($path);
+
         $this->showToastr('Successfully deleted to database.', 'success');
         $this->dispatchBrowserEvent('close-modal');
-        $this->student_delete_id = '';
+        $this->record_delete_id = '';
     }
 
     //###################### END DELETE DATA ############################# 
@@ -140,7 +147,9 @@ class TableView extends Component
         $this->area = '';
         $this->crops = '';
         $this->counsel = '';
-        $this->name = '';
+        // $this->name = '';
+
+        redirect()->to('/view');
     }
 
     public function editRecords($id){
@@ -160,7 +169,7 @@ class TableView extends Component
         $this->area = $record->area;
         $this->crops = $record->crops;
         $this->counsel = $record->counsel;
-        $this->name = $record->name;
+        // $this->name = $record->name;
 
         $this->dispatchBrowserEvent('show-edit-student-modal');
     }
@@ -180,28 +189,51 @@ class TableView extends Component
             'area' => 'required',
             'crops' => 'required',
             'counsel' => 'required',
-            'name' => 'required',
+            // 'name' => 'required'
         ]);
 
+        
+            $record = Record::where('id', $this->rec_id)->first();
+            if(empty($this->name)){
+                $record->docket_number = $this->docket_number;
+                $record->date_filed = $this->date_filed;
+                $record->cabinet = $this->cabinet;
+                $record->nature = $this->nature;
+                $record->petitioners = $this->petitioners;
+                $record->lessor = $this->lessor;
+                $record->lessee = $this->lessee;
+                $record->location = $this->location;
+                $record->date_alhc = $this->date_alhc;
+                $record->area = $this->area;
+                $record->crops = $this->crops;
+                $record->counsel = $this->counsel;
+            } else {
+                $fileName = $this->name->getClientOriginalName();
+                $this->name->storeAs('public/files', $fileName);   
 
-        $record = Record::where('id', $this->rec_id)->first();
-        $record->docket_number = $this->docket_number;
-        $record->date_filed = $this->date_filed;
-        $record->cabinet = $this->cabinet;
-        $record->nature = $this->nature;
-        $record->petitioners = $this->petitioners;
-        $record->lessor = $this->lessor;
-        $record->lessee = $this->lessee;
-        $record->location = $this->location;
-        $record->date_alhc = $this->date_alhc;
-        $record->area = $this->area;
-        $record->crops = $this->crops;
-        $record->counsel = $this->counsel;
-        $record->name = $this->name;
+                $record->docket_number = $this->docket_number;
+                $record->date_filed = $this->date_filed;
+                $record->cabinet = $this->cabinet;
+                $record->nature = $this->nature;
+                $record->petitioners = $this->petitioners;
+                $record->lessor = $this->lessor;
+                $record->lessee = $this->lessee;
+                $record->location = $this->location;
+                $record->date_alhc = $this->date_alhc;
+                $record->area = $this->area;
+                $record->crops = $this->crops;
+                $record->counsel = $this->counsel;
 
-        $record->save();
+                $path = Storage::disk('local')->path('public/files/'. $record->name .'');     //delete files when new file is added
+                unlink($path);
+                $record->name = $fileName;
 
-        $this->showToastr('Successfully udpated!', 'success');
+                redirect()->to('/view');
+            }
+            
+
+            $record->save();
+            $this->showToastr('Successfully udpated!', 'success');
 
         //For hide modal after add student success
         $this->dispatchBrowserEvent('close-modal');

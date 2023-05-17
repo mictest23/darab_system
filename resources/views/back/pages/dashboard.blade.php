@@ -5,15 +5,15 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="bg-white rounded-lg shadow-lg p-5">
-        <h2 class="text-lg font-bold mb-3">Total Sales</h2>
-        <p class="text-3xl font-bold">$50,000</p>
+        <h2 class="text-lg font-bold mb-3">Total Cases</h2>
+        <p class="text-3xl font-bold">133</p>
       </div>
       <div class="bg-white rounded-lg shadow-lg p-5">
         <h2 class="text-lg font-bold mb-3">New Users</h2>
-        <p class="text-3xl font-bold">250</p>
+        <p class="text-3xl font-bold">2</p>
       </div>
       <div class="bg-white rounded-lg shadow-lg p-5">
-        <h2 class="text-lg font-bold mb-3">Orders Pending</h2>
+        <h2 class="text-lg font-bold mb-3">Pending</h2>
         <p class="text-3xl font-bold">15</p>
       </div>
     </div>

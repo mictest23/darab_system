@@ -23,7 +23,7 @@ class AddRecordForm extends Component
             'lessee' => 'required',
             'location' => 'required',
             'date_alhc' => 'required',
-            'area' => 'required',
+            'area' => 'required|numeric',
             'crops' => 'required',
             'counsel' => 'required',
             'file' => 'required',
@@ -32,10 +32,11 @@ class AddRecordForm extends Component
 
         $recordModel = new Record;
         if($this->file) {
-            $fileName = time().'_'.$this->file->getClientOriginalName();
+            $fileName = $this->file->getClientOriginalName();
             $filePath = $this->file->storeAs('files', $fileName, 'public');
-            $recordModel->name = time().'_'.$this->file->getClientOriginalName();
+            $recordModel->name = $this->file->getClientOriginalName();
             $recordModel->file_path = '/public/' . $filePath;
+
 
             $recordModel->docket_number = $this->docket_number;
             $recordModel->date_filed = $this->date_filed;

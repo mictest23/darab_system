@@ -50,7 +50,7 @@
         <div class="grid grid-cols-2 gap-8">
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="phone">Area</label>
-              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" placeholder="Enter area of land" wire:model="area">
+              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter area of land" wire:model="area">
               <p class="text-red-500">@error('area'){{ $message }}@enderror</p>
             </div>
             <div class="mb-4">

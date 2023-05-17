@@ -211,7 +211,7 @@
                   </button>
               </div>
               <div class="modal-body">
-                  <form wire:submit.prevent="editRecordData">
+                  <form wire:submit.prevent="editRecordData" enctype="multipart/form-data">
                       <div class="form-group row">
                           <label for="student_id" class="col-3">Docket Number</label>
                           <div class="col-9">
@@ -335,7 +335,8 @@
                       <div class="form-group row">
                         <label for="phone" class="col-3">E-copy</label>
                         <div class="col-9">
-                            <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="name">
+                            {{-- <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="name"> --}}
+                            <input type="file" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="name">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
