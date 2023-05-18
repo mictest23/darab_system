@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Record;
+use App\Models\Cabinet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,11 +15,7 @@ class AdminController extends Controller
         return view('back.pages.dashboard');
     }
 
-    // public function more($record){
-    //     $records = Record::find($record);
-    //     return view('back.pages.more', ['records' => $records]);
-    // }
-
+    
     public function logout(){
         Auth::guard('web')->logout();
         return redirect()->route('login');

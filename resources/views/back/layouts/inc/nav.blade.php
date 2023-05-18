@@ -18,18 +18,13 @@
         </a>
       </li>
       <li>
-        <a href="#" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800">
+        <a href="/cabinet" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800 {{ request()->is('cabinet') ? 'bg-blue-100':'' }}">
           Cabinet
         </a>
       </li>
       <li>
         <a href="#" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800">
           Model
-        </a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800">
-          E-copy update
         </a>
       </li>
     </ul>
