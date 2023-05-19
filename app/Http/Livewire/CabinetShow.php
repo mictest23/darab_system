@@ -18,9 +18,6 @@ class CabinetShow extends Component
     public function viewSpecific($number, $test, $id){
 
         $cab_specific = 'cab '.$number.'-'.$test.'';
-        $record = DB::table('records')->where('cabinet', $cab_specific)->get();
-        dd($record);
-
-        return redirect()->route('cabinet_specific');
+        return redirect()->route('cabinet_specific', $cab_specific);
     }
 }

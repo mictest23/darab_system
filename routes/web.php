@@ -28,7 +28,7 @@ Route::middleware(['auth:web'])->group(function(){
     Route::view('/add', 'back.pages.add')->name('add');
     Route::view('/view', 'back.pages.view')->name('view');
     Route::view('/cabinet_add', 'back.pages.cabinet_add')->name('cabinet_add');
-    Route::view('/cabinet_specific', 'back.pages.cabinet_specific')->name('cabinet_specific');
+    Route::get('/cabinet_specific/{cab_specific}', [AdminController::class, 'cab_spec'])->name('cabinet_specific');
     Route::view('/cabinet', 'back.pages.cabinet')->name('cabinet');
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
     

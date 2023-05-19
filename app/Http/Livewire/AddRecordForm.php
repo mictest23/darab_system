@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\WithFileUploads;
 use App\Models\Record;
+use App\Models\Cabinet;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AddRecordForm extends Component
 {
@@ -40,7 +41,7 @@ class AddRecordForm extends Component
 
             $recordModel->docket_number = $this->docket_number;
             $recordModel->date_filed = $this->date_filed;
-            $recordModel->cabinet = $this->cabinet;
+            $recordModel->cabinet = strtoupper($this->cabinet);
             $recordModel->nature = $this->nature;
             $recordModel->petitioners = $this->petitioners;
             $recordModel->lessor = $this->lessor;
@@ -67,8 +68,8 @@ class AddRecordForm extends Component
     }
 
 
-    public function render()
-    {
-        return view('livewire.add-record-form');
+    public function render(){
+        $cab_select = Cabinet::all();
+        return view('livewire.add-record-form', ['cab_select' => $cab_select]);
     }
 }

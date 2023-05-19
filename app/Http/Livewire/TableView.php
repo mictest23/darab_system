@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Record;
+use App\Models\Cabinet;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
@@ -49,8 +50,10 @@ class TableView extends Component
     public function render(){
         $searchTerm = '%'.$this->searchTerm.'%';
 
+        $cab_edit = Cabinet::all();
         $records = Record::all();
         return view('livewire.table-view', [
+            'cab_edit' => $cab_edit,
             'records' => Record::where('docket_number','like', $searchTerm)
             ->orWhere('cabinet','like', $searchTerm)
             ->orWhere('petitioners','like', $searchTerm)
@@ -197,7 +200,7 @@ class TableView extends Component
             if(empty($this->name)){
                 $record->docket_number = $this->docket_number;
                 $record->date_filed = $this->date_filed;
-                $record->cabinet = $this->cabinet;
+                $record->cabinet = strtoupper($this->cabinet);
                 $record->nature = $this->nature;
                 $record->petitioners = $this->petitioners;
                 $record->lessor = $this->lessor;
@@ -213,7 +216,7 @@ class TableView extends Component
 
                 $record->docket_number = $this->docket_number;
                 $record->date_filed = $this->date_filed;
-                $record->cabinet = $this->cabinet;
+                $record->cabinet = strtoupper($this->cabinet);
                 $record->nature = $this->nature;
                 $record->petitioners = $this->petitioners;
                 $record->lessor = $this->lessor;

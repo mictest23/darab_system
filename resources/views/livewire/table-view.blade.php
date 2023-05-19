@@ -235,12 +235,43 @@
                       <div class="form-group row">
                           <label for="email" class="col-3">Cabinet</label>
                           <div class="col-9">
-                              <input type="text" id="email" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="cabinet">
-                              @error('cabinet')
-                                  <span class="text-danger">{{ $message }}</span>
-                              @enderror
+
+                              {{-- <input type="text" id="email" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="cabinet"> --}}
+                              <select class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="cabinet">
+                                @foreach ($cab_edit as $cab_edits)
+                                <option value="" selected hidden>Select a cabinet</option>
+                                <optgroup label="Cab {{ $cab_edits->cab_number }}">
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row1 }}" @if (empty( $cab_edits->row1 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row1 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row2 }}" @if (empty( $cab_edits->row2 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row2 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row3 }}" @if (empty( $cab_edits->row3 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row3 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row4 }}" @if (empty( $cab_edits->row4 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row4 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row5 }}" @if (empty( $cab_edits->row5 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row5 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row6 }}" @if (empty( $cab_edits->row6 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row6 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row7 }}" @if (empty( $cab_edits->row7 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row7 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row8 }}" @if (empty( $cab_edits->row8 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row8 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row9 }}" @if (empty( $cab_edits->row9 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row9 }}</option>
+                                  <option value="Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row10 }}" @if (empty( $cab_edits->row10 ))disabled hidden @endif >Cab {{ $cab_edits->cab_number }}-{{ $cab_edits->row10 }}</option>
+                                </optgroup>
+                                @endforeach
+                              </select>
+                              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-700">
+                                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                  <path d="M10 12l-6-6 1.41-1.41L10 9.17l4.59-4.58L16 6z"/>
+                                </svg>
+                              </div>
+
+
+                              @error('cabinet')<span class="text-danger">{{ $message }}</span>@enderror
                           </div>
                       </div>
+
+
+
+
+   
+
+
+
 
                       <div class="form-group row">
                           <label for="phone" class="col-3">Nature</label>
