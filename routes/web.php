@@ -31,5 +31,4 @@ Route::middleware(['auth:web'])->group(function(){
     Route::get('/cabinet_specific/{cab_specific}', [AdminController::class, 'cab_spec'])->name('cabinet_specific');
     Route::view('/cabinet', 'back.pages.cabinet')->name('cabinet');
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
-    
 });

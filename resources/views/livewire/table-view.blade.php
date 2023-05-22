@@ -113,7 +113,7 @@
                 </div>
             </div>
         </div>
-    </div>
+      </div>
 
 
 
@@ -264,14 +264,6 @@
                               @error('cabinet')<span class="text-danger">{{ $message }}</span>@enderror
                           </div>
                       </div>
-
-
-
-
-   
-
-
-
 
                       <div class="form-group row">
                           <label for="phone" class="col-3">Nature</label>

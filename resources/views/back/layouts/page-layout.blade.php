@@ -42,8 +42,10 @@
 
       <aside class="fixed left-0 top-0 h-screen w-44 bg-gray-700">
         <div class="h-auto flex flex-col justify-between">
-          <div class="flex items-center justify-center h-16 bg-gray-900 text-white">
-            <span class="text-lg font-bold">DARAB System v.2</span>
+          <div class="flex items-center justify-center h-16 text-white mb-4 mt-4">
+            {{-- <span class="text-lg font-bold"> --}}
+              <img src="{{url('/image/darab_logo.png')}}" alt="darab logo" width="120" height="120">
+            {{-- </span> --}}
           </div>
            @include('back.layouts.inc.nav')
 

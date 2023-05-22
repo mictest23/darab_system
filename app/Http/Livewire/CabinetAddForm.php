@@ -39,6 +39,8 @@ class CabinetAddForm extends Component
         $cabinetModel->row9 = $this->row9;
         $cabinetModel->row10 = $this->row10;
         $cabinetModel->save();
+        $this->reset();
+        $this->showToastr('You successfully added a cabinet.', 'success');
     }
 
 
@@ -47,4 +49,13 @@ class CabinetAddForm extends Component
     {
         return view('livewire.cabinet-add-form');
     }
+
+
+    public function showToastr($message, $type){
+        return $this->dispatchBrowserEvent('showToastr', [
+            'type' => $type,
+            'message' => $message
+        ]);
+    }
+
 }
