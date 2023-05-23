@@ -26,6 +26,8 @@ Route::middleware(['auth:web'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::get('/more/{record}', [AdminController::class, 'more'])->name('more');
     Route::view('/add', 'back.pages.add')->name('add');
+    Route::view('/add-user', 'back.pages.add-user')->name('add-user');
+    Route::view('/profile', 'back.pages.profile')->name('profile');
     Route::view('/view', 'back.pages.view')->name('view');
     Route::view('/cabinet_add', 'back.pages.cabinet_add')->name('cabinet_add');
     Route::get('/cabinet_specific/{cab_specific}', [AdminController::class, 'cab_spec'])->name('cabinet_specific');

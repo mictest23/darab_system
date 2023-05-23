@@ -25,7 +25,10 @@ class AdminController extends Controller
 
     public function cab_spec($cab_specific){
         $record_specs = DB::table('records')->where('cabinet', $cab_specific)->get();
-        return view('back.pages.cabinet_specific', ['record_specs' => $record_specs]);
+        return view('back.pages.cabinet_specific', [
+            'record_specs' => $record_specs,
+            'cab_specific' => $cab_specific
+        ]);
     }
 
 

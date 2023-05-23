@@ -64,10 +64,10 @@
               <h1 class="text-2xl font-bold mb-5">@yield('pagePart')</h1>
             </div>
             <div class="col-end-7 col-span-2 px-7 grid justify-items-end">
-              <button class="text-lg mb-5 px-3 bg-gray-900 shadow-sm rounded-sm text-white">
-                <span class="font-bold">Mike Pitao | </span>
-                <span class="text-sm">Super Admin</span>
-              </button>
+              <a href="/profile" class="text-lg mb-5 px-3 py-1 bg-gray-900 shadow-sm rounded-sm text-white">
+                <span class="font-bold">{{ Auth::user()->name }} | </span>
+                <span class="text-sm">{{ Auth::user()->type }}</span>
+              </a>
             </div>
           </div>
 

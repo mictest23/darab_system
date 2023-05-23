@@ -22,6 +22,21 @@
           Cabinet
         </a>
       </li>
+
+      @if (Auth::user()->type == 'Super Admin')
+      <li>
+        <a href="/add-user" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800 {{ request()->is('add-user') ? 'bg-blue-100':'' }}">
+          Add Admin
+        </a>
+      </li>
+      @elseif (Auth::user()->type == 'Admin')
+      <li hidden>
+        <a href="/add-user" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800 {{ request()->is('add-user') ? 'bg-blue-100':'' }}">
+          Add Admin
+        </a>
+      </li>
+      @endif
+
       <li>
         <a href="#" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800">
           Model

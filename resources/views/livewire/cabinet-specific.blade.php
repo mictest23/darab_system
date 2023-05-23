@@ -1,6 +1,10 @@
 <div>
 
+  <h2>{{ strtoupper($cab_specific) }}</h1>
+    {{-- <h2>{{ strtoupper($currenturl) }}</h1> --}}
   <input class="appearance-none border py-2 px-3 text-gray-700 leading-tight focus:outline-none mb-2 w-72" type="text" placeholder="Search">
+  <a class="bg-green-500 px-2 py-2 text-white ml-2">Generate QR Code</a>
+  <a class="bg-red-500 px-2 py-2 text-white" href="/cabinet">Go back</a>
   <table class="table-auto w-full bg-white">
     <thead>
       <tr class="bg-yellow-200 text-gray-700 text-sm">
