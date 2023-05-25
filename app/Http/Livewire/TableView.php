@@ -152,7 +152,7 @@ class TableView extends Component
         $this->counsel = '';
         // $this->name = '';
 
-        redirect()->to('/view');
+        // redirect()->to('/view');
     }
 
     public function editRecords($id){

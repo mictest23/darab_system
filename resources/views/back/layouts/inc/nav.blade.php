@@ -38,7 +38,7 @@
       @endif
 
       <li>
-        <a href="#" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800">
+        <a href="https://app.sketchup.com/viewer/3dw?WarehouseModelId=b78e0817-0211-44b5-9728-23d82bae42ab&binaryName=s21&token=v34piEkzrMk=" target="_blank" class="block py-2 px-4 bg-gray-200 hover:bg-gray-100 text-gray-900 hover:text-gray-800 {{ request()->is('model') ? 'bg-blue-100':'' }}">
           Model
         </a>
       </li>

@@ -20,6 +20,7 @@ use App\Http\Controllers\ToastrController;
 
 Route::middleware(['guest:web'])->group(function(){
     Route::view('/login', 'back.pages.login')->name('login');
+    Route::view('/', 'back.pages.login')->name('login');
 });
 
 Route::middleware(['auth:web'])->group(function(){
@@ -32,5 +33,6 @@ Route::middleware(['auth:web'])->group(function(){
     Route::view('/cabinet_add', 'back.pages.cabinet_add')->name('cabinet_add');
     Route::get('/cabinet_specific/{cab_specific}', [AdminController::class, 'cab_spec'])->name('cabinet_specific');
     Route::view('/cabinet', 'back.pages.cabinet')->name('cabinet');
+    Route::view('/model', 'back.pages.model')->name('model');
     Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
 });

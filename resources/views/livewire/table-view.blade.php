@@ -105,7 +105,7 @@
                     </button>
                 </div>
                 <div class="modal-body pt-4 pb-4">
-                    <h6>Are you sure? You want to delete this record data!</h6>
+                    <h6>Are you sure? You want to delete this record!</h6>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-sm btn-primary" wire:click="cancel()" data-dismiss="modal" aria-label="Close">Cancel</button>
