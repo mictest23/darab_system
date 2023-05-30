@@ -10,6 +10,9 @@ class AddUserForm extends Component
 {
 
     public $fullname, $username, $email, $type, $password, $password_confirmation;
+    public $record_delete_id;
+    public $searchTerm;
+
 
 
     public function AddAdmin(){
@@ -40,8 +43,35 @@ class AddUserForm extends Component
         ]);
     }
 
+
+    
+    ################# DELETE USER ########################
+    public function deleteConfirmation($id){
+        $this->record_delete_id = $id;
+
+        $this->dispatchBrowserEvent('show-delete-confirmation-modal');
+    }
+
+    public function cancel(){
+        $this->record_delete_id = '';
+    }
+
+    public function deleteRecordData(){
+        $user = User::where('id', $this->record_delete_id)->first();
+        $user->delete();
+
+        $this->showToastr('Successfully deleted to database.', 'success');
+        $this->dispatchBrowserEvent('close-modal');
+        $this->record_delete_id = '';
+    }
+    ################# DELETE USER ########################
+
+
+
     public function render()
     {
-        return view('livewire.add-user-form');
+        $search = '%'.$this->searchTerm.'%';
+        $users = User::all();
+        return view('livewire.add-user-form', ['users' => User::where('name','like', $search)->get()]);
     }
 }
