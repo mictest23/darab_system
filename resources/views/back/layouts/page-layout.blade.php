@@ -40,7 +40,7 @@
   <body class="bg-gray-100">
     <div class="flex h-screen">
 
-      <aside class="fixed left-0 top-0 h-screen w-44 bg-gray-700">
+      <aside class="fixed left-0 top-0 h-screen bg-gray-700 w-28 sm:w-44">
         <div class="h-auto flex flex-col justify-between">
           <div class="flex items-center justify-center h-16 text-white mb-4 mt-4">
             {{-- <span class="text-lg font-bold"> --}}
@@ -49,14 +49,14 @@
           </div>
            @include('back.layouts.inc.nav')
 
-           <a class="bg-red-500 text-white py-2 px-4 text-sm mt-40" id="openModal">Logout</a>
-          <div class="bg-gray-900 text-white py-2 px-4 text-sm">
+           <a class="bg-red-500 text-white lg:py-2 lg:px-4 sm:px-1 text-sm mt-40" id="openModal">Logout</a>
+          <div class="bg-gray-900 text-white lg:py-2 lg:px-4 sm:px-1 text-sm">
             © DARAB 2023
           </div>
         </div>
       </aside>
 
-      <main class="ml-44 flex-1">
+      <main class="ml-24 sm:ml-44 flex-1">
         <div class="h-full bg-amber-400 p-10">
 
           <div class="grid grid-cols-6">
@@ -64,7 +64,7 @@
               <h1 class="text-2xl font-bold mb-5">@yield('pagePart')</h1>
             </div>
             <div class="col-end-7 col-span-2 px-7 grid justify-items-end">
-              <a href="/profile" class="text-lg mb-5 px-3 py-1 bg-gray-900 shadow-sm rounded-sm text-white">
+              <a href="/profile" class="text-sm sm:text-lg mb-5 px-3 py-1 bg-gray-900 shadow-sm rounded-sm text-white">
                 <span class="font-bold">{{ Auth::user()->name }} | </span>
                 <span class="text-sm">{{ Auth::user()->type }}</span>
               </a>
