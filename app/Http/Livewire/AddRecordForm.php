@@ -16,14 +16,14 @@ class AddRecordForm extends Component
     public function AddRecord(){
         $this->validate([
             'docket_number' => 'required|unique:records,docket_number',
-            'date_filed' => 'required',
+            // 'date_filed' => 'required',
             'cabinet' => 'required',
             'nature' => 'required',
             'petitioners' => 'required',
             'lessor' => 'required',
             'lessee' => 'required',
             'location' => 'required',
-            'date_alhc' => 'required',
+            // 'date_alhc' => 'required',
             'area' => 'required|numeric',
             'crops' => 'required',
             'counsel' => 'required',

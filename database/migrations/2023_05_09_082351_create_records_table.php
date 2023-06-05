@@ -16,17 +16,17 @@ class CreateRecordsTable extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->id();
             $table->string('docket_number')->unique();
-            $table->date('date_filed');
+            $table->date('date_filed')->nullable();
             $table->string('cabinet');
             $table->string('nature');
             $table->string('petitioners');
             $table->string('lessor');
             $table->string('lessee');
             $table->string('location');
-            $table->date('date_alhc');
-            $table->string('area');
+            $table->date('date_alhc')->nullable();
+            $table->string('area')->nullable();
             $table->string('crops');
-            $table->string('counsel');
+            $table->string('counsel')->nullable();
             $table->string('name')->nullable();
             $table->string('file_path')->nullable();
             $table->timestamps();
