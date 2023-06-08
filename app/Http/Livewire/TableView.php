@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Record;
 use App\Models\Cabinet;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -181,18 +182,18 @@ class TableView extends Component
     public function editRecordData(){
         $this->validate([
             'docket_number' => 'required',
-            'date_filed' => 'required',
+            // 'date_filed' => 'required',
             'cabinet' => 'required',
             'nature' => 'required',
             'petitioners' => 'required',
             'lessor' => 'required',
             'lessee' => 'required',
             'location' => 'required',
-            'date_alhc' => 'required',
+            // 'date_alhc' => 'required',
             'area' => 'required',
             'crops' => 'required',
             'counsel' => 'required',
-            // 'name' => 'required'
+            // 'name' => 'required|unique:records,name'
         ]);
 
         
@@ -211,7 +212,7 @@ class TableView extends Component
                 $record->crops = $this->crops;
                 $record->counsel = $this->counsel;
             } else {
-                $fileName = $this->name->getClientOriginalName();
+                $fileName = Str::random(5).'-'. $this->name->getClientOriginalName();
                 $this->name->storeAs('public/files', $fileName);   
 
                 $record->docket_number = $this->docket_number;
@@ -227,9 +228,11 @@ class TableView extends Component
                 $record->crops = $this->crops;
                 $record->counsel = $this->counsel;
 
-                $path = Storage::disk('local')->path('public/files/'. $record->name .'');     //delete files when new file is added
+                //delete files when new file is added
+                $path = Storage::disk('local')->path('public/files/'. $record->name .'');     
                 unlink($path);
                 $record->name = $fileName;
+
 
                 redirect()->to('/view');
             }
