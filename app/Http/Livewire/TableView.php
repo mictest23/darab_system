@@ -48,20 +48,43 @@ class TableView extends Component
     public $view_record_counsel;
     public $view_record_name;
 
-    public function render(){
-        $searchTerm = '%'.$this->searchTerm.'%';
 
+
+
+    public function updated($name, $value){
+        $this->gotoPage(1);
+    }
+
+
+
+
+    // public function render(){
+    //     $searchTerm = '%'.$this->searchTerm.'%';
+
+    //     $cab_edit = Cabinet::all();
+    //     $records = Record::all();
+    //     return view('livewire.table-view', [
+    //         'cab_edit' => $cab_edit,
+    //         'records' => Record::where('docket_number','like', $searchTerm)
+    //         ->orWhere('cabinet','like', $searchTerm)
+    //         ->orWhere('petitioners','like', $searchTerm)
+    //         ->orWhere('lessor','like', $searchTerm)
+    //         ->orWhere('lessee','like', $searchTerm)->paginate(10)
+    //     ])->layout('livewire.table-view');
+    // }
+
+
+
+
+    public function render(){
         $cab_edit = Cabinet::all();
         $records = Record::all();
         return view('livewire.table-view', [
-            'cab_edit' => $cab_edit,
-            'records' => Record::where('docket_number','like', $searchTerm)
-            ->orWhere('cabinet','like', $searchTerm)
-            ->orWhere('petitioners','like', $searchTerm)
-            ->orWhere('lessor','like', $searchTerm)
-            ->orWhere('lessee','like', $searchTerm)->paginate(10)
+            'cab_edit' => $cab_edit,    
+            'records' => Record::search(trim($this->searchTerm))->paginate(10)
         ])->layout('livewire.table-view');
     }
+
 
 
 

@@ -88,6 +88,7 @@
         </tbody>
       </table>
       {{ $records->links() }}
+      {{-- {{ $records->links('livewire::simple-bootstrap') }} --}}
 
 
 

@@ -7,6 +7,7 @@ use App\Models\Cabinet;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+
 class AddRecordForm extends Component
 {
 
@@ -29,6 +30,7 @@ class AddRecordForm extends Component
             'counsel' => 'required',
             'file' => 'required',
         ]);
+
 
 
         $recordModel = new Record;

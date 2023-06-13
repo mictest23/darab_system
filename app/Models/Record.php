@@ -26,4 +26,13 @@ class Record extends Model
         'name',
         'file_path'
     ];
+
+
+
+    public function scopeSearch($query, $term){
+        $term = "%$term%";
+        $query->where(function($query) use ($term){
+            $query->where('docket_number', 'like', $term);
+        });
+    }
 }
