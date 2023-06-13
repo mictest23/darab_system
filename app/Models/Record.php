@@ -32,7 +32,12 @@ class Record extends Model
     public function scopeSearch($query, $term){
         $term = "%$term%";
         $query->where(function($query) use ($term){
-            $query->where('docket_number', 'like', $term);
+            $query->where('docket_number', 'like', $term)
+                  ->orWhere('cabinet', 'like', $term)
+                  ->orWhere('petitioners', 'like', $term)
+                  ->orWhere('lessor', 'like', $term)
+                  ->orWhere('lessee', 'like', $term)
+                  ->orWhere('location', 'like', $term);
         });
     }
 }

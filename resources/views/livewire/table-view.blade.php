@@ -9,6 +9,7 @@
             <th class="px-4 py-2">Petitioners</th>
             <th class="px-4 py-2">Lessors</th>
             <th class="px-4 py-2">Lessee</th>
+            <th class="px-4 py-2">Location</th>
             <th class="px-4 py-2">E-Copy</th>
             <th class="px-4 py-2">Actions</th>
           </tr>
@@ -23,6 +24,7 @@
             <td class="border px-4 py-2 w-45">{{ $record->petitioners }}</td>
             <td class="border px-4 py-2 w-40">{{ $record->lessor }}</td>
             <td class="border px-4 py-2 w-40">{{ $record->lessee }}</td>
+            <td class="border px-4 py-2 w-40">{{ $record->location }}</td>
             <td class="border px-4 py-2 w-60"><a href="storage/files/{{$record->name}}">{{ $record->name }}</a></td>
             <td class="border py-2 text-sm w-20">
                 <div class="grid grid-cols-3 p-2">
