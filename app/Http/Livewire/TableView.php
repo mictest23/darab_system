@@ -81,7 +81,7 @@ class TableView extends Component
         $records = Record::all();
         return view('livewire.table-view', [
             'cab_edit' => $cab_edit,    
-            'records' => Record::search(trim($this->searchTerm))->paginate(10)
+            'records' => Record::search(trim($this->searchTerm))->orderByDesc('created_at')->paginate(10)
         ])->layout('livewire.table-view');
     }
 
@@ -206,14 +206,14 @@ class TableView extends Component
         $this->validate([
             'docket_number' => 'required',
             // 'date_filed' => 'required',
-            'cabinet' => 'required',
+            // 'cabinet' => 'required',
             'nature' => 'required',
             'petitioners' => 'required',
             'lessor' => 'required',
             'lessee' => 'required',
             'location' => 'required',
             // 'date_alhc' => 'required',
-            'area' => 'required',
+            // 'area' => 'required',
             'crops' => 'required',
             'counsel' => 'required',
             // 'name' => 'required|unique:records,name'
