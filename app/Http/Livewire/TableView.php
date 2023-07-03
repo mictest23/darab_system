@@ -214,7 +214,7 @@ class TableView extends Component
             'location' => 'required',
             // 'date_alhc' => 'required',
             // 'area' => 'required',
-            'crops' => 'required',
+            // 'crops' => 'required',
             'counsel' => 'required',
             // 'name' => 'required|unique:records,name'
         ]);

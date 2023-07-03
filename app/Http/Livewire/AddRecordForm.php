@@ -26,7 +26,7 @@ class AddRecordForm extends Component
             'location' => 'required',
             // 'date_alhc' => 'required',
             // 'area' => 'required|numeric',
-            'crops' => 'required',
+            // 'crops' => 'required',
             'counsel' => 'required',
             'file' => 'required',
         ]);
