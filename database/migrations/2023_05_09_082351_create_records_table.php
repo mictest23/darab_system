@@ -25,7 +25,7 @@ class CreateRecordsTable extends Migration
             $table->string('location');
             $table->date('date_alhc')->nullable();
             $table->string('area')->nullable();
-            $table->string('crops');
+            $table->string('crops')->nullable();
             $table->string('counsel')->nullable();
             $table->string('name')->nullable();
             $table->string('file_path')->nullable();

@@ -44,7 +44,20 @@
 
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="message">Nature of case</label>
-          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Nature of case" wire:model="nature"></textarea>
+          {{-- <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Nature of case" wire:model="nature"></textarea> --}}
+
+          <select class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="nature">
+            <option value="" selected hidden>Select nature of case</option>
+            <option value="Review of an Agricultural Leasehold ALHC">Review of an Agricultural Leasehold ALHC</option>
+            <option value="Correction of Entry">Correction of Entry</option>
+            <option value="Ejectment">Ejectment</option>
+            <option value="Reinstatement with Damages">Reinstatement with Damages</option>
+            <option value="Inclusion and Exclusion on Transfer Certificate">Inclusion and Exclusion on Transfer Certificate</option>
+            <option value="cancellation of entry">Cancellation of entry</option>
+            <option value="Summary Administrative Proceeding to Determine Just Compensation">Summary Administrative Proceeding to Determine Just Compensation</option>
+            <option value="Inclusion and Exclusion on Transfer Certificate">Inclusion and Exclusion on Transfer Certificate</option>
+          </select>
+          
           <p class="text-red-500 text-sm">@error('nature'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
@@ -54,12 +67,16 @@
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Respondent lessor</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessor" wire:model="lessor">
+          {{-- <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessor" wire:model="lessor"> --}}
+          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Lessors" wire:model="lessor">
+          </textarea>
           <p class="text-red-500 text-sm">@error('lessor'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Respondent lessee</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessee" wire:model="lessee">
+          {{-- <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Enter lessee" wire:model="lessee"> --}}
+          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Lessee" wire:model="lessee">
+          </textarea>
           <p class="text-red-500 text-sm">@error('lessee'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">
@@ -81,14 +98,36 @@
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="phone">Crop</label>
-              <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="What crop being cultivated" wire:model="crops">
+              {{-- <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="What crop being cultivated" wire:model="crops"> --}}
+
+              <select class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="crops">
+                <option value="" selected hidden>Crop being cultivated</option>
+                <option value="rice">Rice</option>
+                <option value="corn">Corn</option>
+                <option value="banana">Banana</option>
+                <option value="camote">Kamote</option>
+                <option value="balanghoy">Balanghoy</option>
+                <option value="coconut">Coconut</option>
+                <option value="Mango">Mango</option>
+                <option value="abaca">Abaca</option>
+                <option value="cofee/cacao">Coffee/Cacao</option>
+                <option value="Commercial Trees/Orchard">Commercial Trees/Orchard</option>
+                <option value="Palm Trees">Palm Trees</option>
+                <option value="Pineapple">Pineapple</option>
+                <option value="Rootcrops">Rootcrops</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Others">Others</option>
+              </select>
+
               <p class="text-red-500 text-sm">@error('crops'){{ $message }}@enderror</p>
             </div>
         </div>
     
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="phone">Counsel</label>
-          <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Enter Counsels" wire:model="counsel">
+          {{-- <input class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Enter Counsels" wire:model="counsel"> --}}
+          <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" placeholder="Enter Counsels" wire:model="counsel">
+          </textarea>
           <p class="text-red-500 text-sm">@error('counsel'){{ $message }}@enderror</p>
         </div>
         <div class="mb-4">

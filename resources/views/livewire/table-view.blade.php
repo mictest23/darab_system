@@ -271,7 +271,20 @@
                       <div class="form-group row">
                           <label for="phone" class="col-3">Nature</label>
                           <div class="col-9">
-                              <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="" id="" cols="30" rows="10" wire:model="nature"></textarea>
+                              {{-- <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="" id="" cols="30" rows="10" wire:model="nature"></textarea> --}}
+
+                              <select class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="nature">
+                                <option value="" selected hidden>Select nature of case</option>
+                                <option value="Review of an Agricultural Leasehold ALHC">Review of an Agricultural Leasehold ALHC</option>
+                                <option value="Correction of Entry">Correction of Entry</option>
+                                <option value="Ejectment">Ejectment</option>
+                                <option value="Reinstatement with Damages">Reinstatement with Damages</option>
+                                <option value="Inclusion and Exclusion on Transfer Certificate">Inclusion and Exclusion on Transfer Certificate</option>
+                                <option value="cancellation of entry">Cancellation of entry</option>
+                                <option value="Summary Administrative Proceeding to Determine Just Compensation">Summary Administrative Proceeding to Determine Just Compensation</option>
+                                <option value="Inclusion and Exclusion on Transfer Certificate">Inclusion and Exclusion on Transfer Certificate</option>
+                              </select>
+
                               @error('nature')
                                   <span class="text-danger">{{ $message }}</span>
                               @enderror
@@ -331,7 +344,7 @@
                       <div class="form-group row">
                         <label for="phone" class="col-3">Area</label>
                         <div class="col-9">
-                            <input type="number" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="area">
+                            <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="area">
                             @error('area')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -341,7 +354,27 @@
                       <div class="form-group row">
                         <label for="phone" class="col-3">Crops</label>
                         <div class="col-9">
-                            <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="crops">
+                            {{-- <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="crops"> --}}
+
+                            <select class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="crops">
+                                <option value="" selected hidden>Crop being cultivated</option>
+                                <option value="rice">Rice</option>
+                                <option value="corn">Corn</option>
+                                <option value="banana">Banana</option>
+                                <option value="camote">Kamote</option>
+                                <option value="balanghoy">Balanghoy</option>
+                                <option value="coconut">Coconut</option>
+                                <option value="Mango">Mango</option>
+                                <option value="abaca">Abaca</option>
+                                <option value="cofee/cacao">Coffee/Cacao</option>
+                                <option value="Commercial Trees/Orchard">Commercial Trees/Orchard</option>
+                                <option value="Palm Trees">Palm Trees</option>
+                                <option value="Pineapple">Pineapple</option>
+                                <option value="Rootcrops">Rootcrops</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Others">Others</option>
+                              </select>
+
                             @error('crops')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -351,7 +384,8 @@
                       <div class="form-group row">
                         <label for="phone" class="col-3">Counsel</label>
                         <div class="col-9">
-                            <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="counsel">
+                            {{-- <input type="text" id="phone" class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="counsel"> --}}
+                            <textarea class="shadow-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="" id="" cols="30" rows="10" wire:model="counsel"></textarea>
                             @error('counsel')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
